@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>My Beautiful Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:900&display=swap');
 
@@ -11,19 +12,19 @@
             height: 100vh;
             background: linear-gradient(to bottom, #111fff, #111111);
             font-family: 'Red Hat Display', sans-serif;
-            text-align: center; /* Align the content to the center */
+            text-align: center;
         }
 
         h1 {
-            font-size: 6vw; /* Change the size of the heading to half */
+            font-size: 6vw;
             max-width: 75vw;
             color: #fefefe;
             text-align: center;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            transition: background-size 0.5s ease; /* Add the same transition effect */
-            margin-bottom: 10px; /* Reduce the space between heading and description */
+            transition: background-size 0.5s ease;
+            margin-bottom: 10px;
         }
 
         /* Style the menu bar */
@@ -35,7 +36,7 @@
             background: #111fff;
             color: #fefefe;
             padding: 10px;
-            z-index: 999; /* Make sure the menu bar appears on top */
+            z-index: 999;
         }
 
         .menu ul {
@@ -79,7 +80,7 @@
             padding: 15px 30px;
             font-size: 20px;
             font-weight: bold;
-            border-radius: 20px; /* Rounded edges */
+            border-radius: 20px;
             cursor: pointer;
             transition: 0.3s;
             text-transform: uppercase;
@@ -144,7 +145,41 @@
             font-size: 20px;
             color: #fefefe;
             text-align: center;
-            margin-top: 0; /* Reduce the space between heading and description */
+            margin-top: 0;
+        }
+
+        /* Add media queries for different screen sizes */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 8vw;
+            }
+
+            .menu {
+                padding: 5px;
+            }
+
+            .menu ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .input-boxes {
+                flex-direction: column;
+            }
+
+            .input-box {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .button {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+
+            .result-box span {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
@@ -195,9 +230,9 @@
             var salary = document.getElementById('salary').value;
             var workTime = document.getElementById('work-time').value;
             var commodityPrice = document.getElementById('commodity-price').value;
-            var x = salary / (workTime * 30);
+            var x = salary / workTime;
             var result = commodityPrice / x;
-            document.getElementById('result').textContent = result.toFixed(2); // Display result with 2 decimal places
+            document.getElementById('result').textContent = result.toFixed(2);
             document.getElementById('result-box').style.display = 'block';
         }
     </script>
